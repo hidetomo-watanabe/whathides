@@ -114,7 +114,6 @@ section h2 span {
 #gallery li{
   float: left;
   width: calc(100%/2);
-  line-height: 0;
 }
 #gallery li.full{
   width: 100%;
