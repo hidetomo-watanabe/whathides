@@ -115,6 +115,9 @@ section h2 span {
   float: left;
   width: calc(100%/2);
 }
+#gallery li.text{
+  margin-left: 20%;
+}
 #gallery li.full{
   width: 100%;
 }
