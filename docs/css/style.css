@@ -117,6 +117,9 @@ section h2 span {
 #gallery li.full{
   width: 100%;
 }
+#gallery li.split3{
+  width: calc(100%/3);
+}
 
 
 #gallery img{
