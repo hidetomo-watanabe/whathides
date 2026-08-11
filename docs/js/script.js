@@ -1,41 +1,42 @@
-$(function(){
+document.addEventListener('DOMContentLoaded', function () {
 
-  var
-    winW = $(window).width(),
-    winH = $(window).height(),
-    nav = $('#mainnav ul a'),
-    curPos = $(this).scrollTop();
+  var navLinks = document.querySelectorAll('#mainnav ul a');
+  var panel = document.querySelector('.panel');
+  var menuWrap = document.getElementById('menuWrap');
+  var menuBtn = document.getElementById('menuBtn');
 
-  if (winW > 880){
-    var headerH =20;
-  }
-  else{
-    var headerH =60;
+  function headerHeight() {
+    return window.innerWidth > 880 ? 20 : 60;
   }
 
-  $(nav).on('click', function(){
-    nav.removeClass('active');
-    var $el = $(this),
-    id = $el.attr('href');
-     $('html, body').animate({
-       scrollTop: $(id).offset().top - headerH
-     }, 500);
-    $(this).addClass('active');
-    if (winW < 880){
-      $('#menuWrap').next().slideToggle();
-      $('#menuBtn').removeClass('close');
-    }
-     return false;
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      navLinks.forEach(function (l) { l.classList.remove('active'); });
+      link.classList.add('active');
+
+      var target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight();
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+
+      // スマホ表示ではメニューを閉じる
+      if (window.innerWidth < 880 && panel) {
+        panel.style.display = 'none';
+        if (menuBtn) menuBtn.classList.remove('close');
+      }
+    });
   });
 
-  $('.panel').hide();
-  $('#menuWrap').toggle(function(){
-    $(this).next().slideToggle();
-    $('#menuBtn').toggleClass('close');
-  },
-  function(){
-    $(this).next().slideToggle();
-    $('#menuBtn').removeClass('close');
-  });
+  // ハンバーガーメニューの開閉
+  if (menuWrap && panel) {
+    menuWrap.addEventListener('click', function () {
+      var isOpen = window.getComputedStyle(panel).display !== 'none';
+      panel.style.display = isOpen ? 'none' : 'block';
+      if (menuBtn) menuBtn.classList.toggle('close');
+    });
+  }
 
 });
