@@ -12,6 +12,10 @@ legend{display:none;}
 h1,h2,h3,h4,h5,h6{font-size:100%;}
 img,abbr,acronym,fieldset{border:0;}
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   font: 14px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
   font-weight: 300;
@@ -22,15 +26,35 @@ body{
 }
 
 a{
-  color: #0066ff;
+  color: #0052cc;
   text-decoration: none;
 }
 
-a:hover, .active{
+a:hover{
   text-decoration: underline;
 }
 
-a:active, a:focus,input:active, input:focus{outline:0;}
+/* キーボード操作時のみフォーカスリングを表示する */
+:focus:not(:focus-visible){
+  outline: 0;
+}
+
+a:focus-visible, button:focus-visible{
+  outline: 2px solid #0052cc;
+  outline-offset: 3px;
+}
+
+/* アニメーションを抑制する設定を尊重する */
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior: auto;
+  }
+  *, *:before, *:after{
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
 
 
 /* ヘッダー
@@ -38,6 +62,19 @@ a:active, a:focus,input:active, input:focus{outline:0;}
 #mainnav a{
   color: #000;
   font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
+}
+
+#mainnav a.active{
+  text-decoration: underline;
+}
+
+#menu{
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 
@@ -64,6 +101,8 @@ img{
 
 section{
   clear: both;
+  /* 固定ヘッダーの分だけアンカー位置をずらす */
+  scroll-margin-top: 70px;
 }
 
 section h2{
@@ -85,10 +124,6 @@ section h2 span {
   padding-bottom: 50px;
 }
 
-#sec03 .inner, #sec04 .inner{
-  border-bottom: 1px solid #a0a0a0;
-}
-
 .innerS{
   width: 60%;
   margin: 0 auto;
@@ -96,36 +131,51 @@ section h2 span {
 }
 
 
-/* SEC02 Gallery
+/* Gallery
 ------------------------------------------------------------*/
-#sec02{
-  padding: 0 !important;
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
-#gallery{
-  overflow: hidden;
+.gallery > li.full{
+  grid-column: 1 / -1;
 }
 
-#gallery li{
-  float: left;
-  width: calc(100%/2);
-}
-#gallery li.text{
-  padding: 10% 0;
-}
-#gallery li.full{
-  width: 100%;
+.gallery > li.text{
+  display: flex;
+  align-items: center;
+  padding: 8% 6%;
 }
 
+.galleryText{
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
 
-#gallery img{
+.gallery img{
   display: block;
   width: 100%;
   height: auto;
 }
 
+.galleryLead{
+  margin-bottom: 8px;
+  font-weight: 400;
+}
 
-/* SEC02 SERVICE
+.bullets li{
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.bullets li:before{
+  content: "・";
+}
+
+
+/* SERVICE
 ------------------------------------------------------------*/
 .lead{
   margin-bottom: 40px;
@@ -152,40 +202,9 @@ section h2 span {
 }
 
 
-/* SEC03 BRAND
+/* COMPANY
 ------------------------------------------------------------*/
-.col4 .img{
-  margin: 0 auto;
-}
-
-
-
-/* SEC04 PROJECT
-------------------------------------------------------------*/
-#sec04{
-  padding-bottom: 0 !important;
-}
-
-.article{
-  clear: both;
-  overflow: hidden;
-  padding-bottom: 50px;
-}
-
-.article img{
-  float: left;
-  margin: 5px 20px 20px;
-}
-
-.article p{
-  margin-bottom: 20px;
-}
-
-
-
-/* SEC05 COMPANY
-------------------------------------------------------------*/
-#sec05 p{
+#company p{
   margin-bottom: 5px;
 }
 
@@ -195,28 +214,17 @@ section h2 span {
   margin: 20px 0;
 }
 
-#map{
-  position: relative;
-  padding-bottom: 75%;
-  height: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
 #map iframe{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   border: 0;
 }
 
 
-
-/* SEC06 CONTACT
+/* CONTACT
 ------------------------------------------------------------*/
-#sec06 .mail{
+#contact .mail{
   margin-top: 15px;
   font-size: 18px;
 }
@@ -238,6 +246,11 @@ section h2 span {
     width: 80%;
   }
 
+  #footer{
+    width: 80%;
+    padding: 30px 10px 70px 0;
+  }
+
   #sidebar{
     width: 12%;
     position: fixed;
@@ -246,12 +259,8 @@ section h2 span {
     background: #dadada;
   }
 
-  a#menu{
+  #menu{
     display:none;
-  }
-
-  .panel{
-    display:block !important;
   }
 
   #sidebar h1{
@@ -263,39 +272,13 @@ section h2 span {
     padding: 10px 0;
   }
 
-  #sns{
-    margin-top: 50px;
-  }
-
-  #sns li{
-    display: inline-block;
-    padding-right: 10px;
-  }
-
-  #sns a:hover img{
-    opacity: .8;
-  }
-
-  /* SEC03 BRAND
-  -----------------*/
-  .col4{
-    text-align: center;
-  }
-
-  .col4 li{
-    display: inline-block;
-    width: 18%;
-    padding: 0 3%;
-    vertical-align: top;
-    text-align: left;
+  section{
+    scroll-margin-top: 20px;
   }
 
   #map iframe{
-    height: 200px !important;
-  }
-
-  #footer{
-    padding: 30px 10px 70px 0;
+    aspect-ratio: auto;
+    height: 200px;
   }
 }
 
@@ -316,18 +299,11 @@ section h2 span {
     width: 94%;
     padding-bottom: 30px;
   }
-  #gallery li{
-    float: none;
-    width: 100%;
+  .gallery{
+    grid-template-columns: 1fr;
   }
-  .article img{
-    float: none;
-    display: block;
-    margin: 0 auto 20px;
-  }
-  #map iframe{
-    width: 96% !important;
-    left: 2%;
+  .gallery > li.text{
+    padding: 8% 3%;
   }
 }
 
@@ -356,7 +332,7 @@ section h2 span {
     max-height: 25px;
   }
 
-  a#menu{
+  #menu{
     display: inline-block;
     position: relative;
     width: 40px;
@@ -396,20 +372,20 @@ section h2 span {
     margin-top: 5px;
   }
 
-  a#menu .close{
+  #menuBtn.close{
     background: transparent;
   }
 
-  a#menu .close:before, a#menu .close:after{
+  #menuBtn.close:before, #menuBtn.close:after{
     margin-top: 0;
   }
 
-  a#menu .close:before{
+  #menuBtn.close:before{
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
   }
 
-  a#menu .close:after{
+  #menuBtn.close:after{
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
   }
@@ -422,6 +398,10 @@ section h2 span {
     left: 0;
     top: -10px;
     z-index: 100;
+  }
+
+  .panel.is-open{
+    display: block;
   }
 
   #mainnav{
@@ -458,23 +438,6 @@ section h2 span {
     border-right: solid 2px #000;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
-  #mainnav #sns li{
-    display: inline-block;
-  }
-  #mainnav #sns li a{
-    position: relative;
-    display: inline-block;
-    padding: 15px 10px 0;
-    border: 0;
-  }
-  #mainnav #sns li a:before{
-    border: 0;
-  }
-  .col4 li{
-    margin: 0 auto 50px;
-    display: block;
-    text-align: center;
   }
   section h2{
     margin: 55px auto;

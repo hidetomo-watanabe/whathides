@@ -2,63 +2,119 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="スタートアップエコシステムの拡張">
-  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="WhatHidesは、スタートアップエコシステムを拡張し、スタートアップの市場価値を最適化します。事業戦略・組織体制・協業・資本政策を一体で支援します。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WhatHides | スタートアップエコシステムの拡張</title>
+  <link rel="canonical" href="https://whathides.co.jp/">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WhatHides">
+  <meta property="og:url" content="https://whathides.co.jp/">
+  <meta property="og:title" content="WhatHides | スタートアップエコシステムの拡張">
+  <meta property="og:description" content="WhatHidesは、スタートアップエコシステムを拡張し、スタートアップの市場価値を最適化します。事業戦略・組織体制・協業・資本政策を一体で支援します。">
+  <meta property="og:image" content="https://whathides.co.jp/images/ogp.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Modern+Antiqua&family=Noto+Sans+JP:wght@300;400;500&display=swap">
+  <!-- 見出し用。使用する文字だけをサブセット取得する -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Modern+Antiqua&text=TOPVISERCMANY&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap">
   <link rel="stylesheet" media="all" href="css/style.css">
   <script src="js/script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "合同会社WhatHides",
+    "alternateName": "WhatHides LLC",
+    "url": "https://whathides.co.jp/",
+    "logo": "https://whathides.co.jp/images/logoWhathides.png",
+    "image": "https://whathides.co.jp/images/ogp.jpg",
+    "description": "WhatHidesは、スタートアップエコシステムを拡張し、スタートアップの市場価値を最適化します。",
+    "email": "info@whathides.co.jp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "JP",
+      "addressRegion": "千葉県",
+      "addressLocality": "松戸市",
+      "streetAddress": "西馬橋蔵元町125 ムトービルB1階"
+    }
+  }
+  </script>
 </head>
 
 <body id="top">
   <div id="wrapper">
 
-    <div id="sidebar">
+    <header id="sidebar">
       <div id="sidebarWrap">
-        <h1><img src="images/logoWhathides.png" width="87" height="25" alt="logo"></h1>
-        <nav id="mainnav">
-          <p id="menuWrap"><a id="menu"><span id="menuBtn"></span></a></p>
-          <div class="panel">
+        <h1><img src="images/logoWhathides.png" width="87" height="25" alt="WhatHides"></h1>
+        <nav id="mainnav" aria-label="メインナビゲーション">
+          <p id="menuWrap">
+            <button type="button" id="menu" aria-expanded="false" aria-controls="navPanel" aria-label="メニューを開く">
+              <span id="menuBtn"></span>
+            </button>
+          </p>
+          <div class="panel" id="navPanel">
             <ul>
               <li><a href="#top">TOP</a></li>
-              <li><a href="#sec01">VISION</a></li>
-              <li><a href="#sec02">SERVICE</a></li>
-              <li><a href="#sec05">COMPANY</a></li>
-              <li><a href="#sec06">CONTACT</a></li>
+              <li><a href="#vision">VISION</a></li>
+              <li><a href="#service">SERVICE</a></li>
+              <li><a href="#company">COMPANY</a></li>
+              <li><a href="#contact">CONTACT</a></li>
             </ul>
           </div>
         </nav>
       </div>
-    </div>
+    </header>
 
-    <div id="content">
+    <main id="content">
       <p id="mainImg">
         <picture>
           <source type="image/webp"
                   srcset="images/network-960.webp 960w, images/network-1440.webp 1440w, images/network-1920.webp 1920w"
                   sizes="(min-width: 800px) 80vw, 100vw">
-          <img src="images/network.jpg" width="1920" height="828" alt="" fetchpriority="high">
+          <img src="images/network.jpg"
+               srcset="images/network-960.jpg 960w, images/network-1440.jpg 1440w, images/network.jpg 1920w"
+               sizes="(min-width: 800px) 80vw, 100vw"
+               width="1920" height="828" alt="" fetchpriority="high">
         </picture>
       </p>
+
       <!-- VISION -->
-      <section id="sec01">
+      <section id="vision">
         <header>
           <h2><span>VISION</span></h2>
         </header>
         <div class="innerS">
           WhatHidesは、スタートアップエコシステムを拡張し、スタートアップの市場価値を最適化します。
         </div>
-        <ul id="gallery">
-          <li class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;スタートアップへの面での支援<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・現場を巻き込んだ事業戦略策定<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・採用と業務委託を交えた組織体制構築<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・スタートアップと大手企業の協業促進<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・長期的資本政策策定</li>
-          <li><img src="images/scheme.png" width="360" height="350" alt=""></li>
+        <ul class="gallery">
+          <li class="text">
+            <div class="galleryText">
+              <p class="galleryLead">スタートアップへの面での支援</p>
+              <ul class="bullets">
+                <li>現場を巻き込んだ事業戦略策定</li>
+                <li>採用と業務委託を交えた組織体制構築</li>
+                <li>スタートアップと大手企業の協業促進</li>
+                <li>長期的資本政策策定</li>
+              </ul>
+            </div>
+          </li>
+          <li><img src="images/scheme.png" width="654" height="628" alt="" loading="lazy"></li>
         </ul>
       </section>
       <!-- // VISION -->
+
       <!-- SERVICE -->
-      <section id="sec02">
+      <section id="service">
         <header>
           <h2><span>SERVICE</span></h2>
         </header>
@@ -79,13 +135,14 @@
             </li>
           </ul>
         </div>
-        <ul id="gallery">
-          <li class="full"><img src="images/service.png" width="1080" height="695" alt="成長ステージごとの支援内容を示した図。シード・アーリー期は紹介と壁打ち、ミドル・レイター期からIPO後はVCと連携した面での支援、拡大期・安定期はスタートアップとPEファンド双方への投資支援。"></li>
+        <ul class="gallery">
+          <li class="full"><img src="images/service.png" width="1805" height="662" loading="lazy" alt="成長ステージごとの支援内容を示した図。シード・アーリー期は紹介と壁打ち、ミドル・レイター期からIPO後はVCと連携した面での支援、拡大期・安定期はスタートアップとPEファンド双方への投資支援。"></li>
         </ul>
       </section>
       <!-- // SERVICE -->
+
       <!-- COMPANY -->
-      <section id="sec05">
+      <section id="company">
         <header>
           <h2><span>COMPANY</span></h2>
         </header>
@@ -98,7 +155,10 @@
             <li>
               <div id="map">
                 <!-- GOOGLE MAP -->
-                <iframe src="https://www.google.com/maps?output=embed&q=%E9%A6%AC%E6%A9%8B%E3%83%8F%E3%83%B3%E3%83%89%E3%82%AF%E3%83%A9%E3%83%83%E3%83%97&z=14" allowfullscreen></iframe>
+                <iframe
+                  title="合同会社WhatHides 所在地の地図"
+                  src="https://www.google.com/maps?output=embed&q=%E5%8D%83%E8%91%89%E7%9C%8C%E6%9D%BE%E6%88%B8%E5%B8%82%E8%A5%BF%E9%A6%AC%E6%A9%8B%E8%94%B5%E5%85%83%E7%94%BA125&z=17"
+                  loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 <!-- // GOOGLE MAP -->
               </div>
             </li>
@@ -106,8 +166,9 @@
         </div>
       </section>
       <!-- // COMPANY -->
+
       <!-- CONTACT -->
-      <section id="sec06">
+      <section id="contact">
         <header>
           <h2><span>CONTACT</span></h2>
         </header>
@@ -117,12 +178,12 @@
         </div>
       </section>
       <!-- // CONTACT -->
+    </main>
 
-      <footer id="footer">
-        Copyright(c) 2020-2026 WhatHides LLC. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
-      </footer>
+    <footer id="footer">
+      Copyright(c) 2020-2026 WhatHides LLC. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank" rel="noopener noreferrer">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
+    </footer>
 
-    </div>
   </div>
 
 </body>
