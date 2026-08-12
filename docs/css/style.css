@@ -515,7 +515,7 @@ section h2:after{
   line-height: 1.7;
 }
 
-/* 誰と誰のあいだの支援かを一行で示す（旧 service.png の内容） */
+/* 誰と誰のあいだの支援かを一行で示す */
 .stageWho{
   margin-bottom: 8px;
   color: var(--muted);
