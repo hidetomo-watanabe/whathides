@@ -381,23 +381,26 @@ section h2:after{
   letter-spacing: .06em;
 }
 
-/* 層と層をつなぐ縦線。ラベルは線の右に置く */
+/* 層と層をつなぐ縦線。図の中央に立てる。
+   縦線は背景で描き、疑似要素2つは上下の矢じりに使う。
+   ラベルは線に重ね、背景色で線を切って抜けているように見せる */
 .tierLink{
   position: relative;
-  padding: 22px 0 22px 46px;
+  padding: 30px 0;
+  background-image: linear-gradient(#a5a29a, #a5a29a);
+  background-size: 1px 100%;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.7;
   letter-spacing: .04em;
+  text-align: center;
 }
 
-.tierLink:before{
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 24px;
-  border-left: 1px solid #a5a29a;
+.tierLink > span{
+  padding: 0 14px;
+  background: var(--bg);
 }
 
 /* 下向きの矢じり */
@@ -405,7 +408,7 @@ section h2:after{
   content: "";
   position: absolute;
   bottom: 3px;
-  left: 20px;
+  left: calc(50% - 4px);
   width: 8px;
   height: 8px;
   border-right: 1px solid #a5a29a;
@@ -413,12 +416,12 @@ section h2:after{
   transform: rotate(45deg);
 }
 
-/* 上下どちらにも向く関係。上向きの矢じりを内側の span で足す */
-.tierLinkBoth > span:before{
+/* 上下どちらにも向く関係。上向きの矢じりを足す */
+.tierLinkBoth:before{
   content: "";
   position: absolute;
   top: 3px;
-  left: 20px;
+  left: calc(50% - 4px);
   width: 8px;
   height: 8px;
   border-top: 1px solid #a5a29a;
@@ -674,7 +677,7 @@ section h2:after{
     padding: 16px 18px;
   }
   .tierLink{
-    padding: 18px 0 18px 42px;
+    padding: 26px 0;
   }
   .pillar{
     margin-bottom: 64px;
