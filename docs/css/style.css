@@ -315,13 +315,19 @@ section h2 span {
   font-weight: 500;
 }
 
+/* h4 は border-left:3px + padding-left:12px で文字が 15px から始まる。
+   同じ 15px に揃えて、見出しの下にぶら下がる一塊に見せる */
+.stages p{
+  padding-left: 15px;
+}
+
 /* 誰と誰のあいだの支援かを一行で示す（旧 service.png の内容） */
 .stageWho{
   margin-bottom: 6px;
-  padding-left: 15px;
   color: #555;
   font-size: 13px;
   line-height: 1.7;
+  letter-spacing: .08em;
 }
 
 .stages .bullets{
