@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="WhatHidesは、スタートアップの事業戦略・組織体制・協業・資本政策を一体で支援し、投資ファンドと連携します。あわせて、AI/IT戦略の策定から導入・定着までを支援します。">
+  <meta name="description" content="WhatHidesは、スタートアップの事業戦略・組織体制・協業・資本政策を一体で支援します。投資ファンドとの連携も検討しています。あわせて、AI/IT戦略の策定から導入・定着までを支援します。">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WhatHides | スタートアップ支援とAI/IT戦略・導入支援</title>
   <link rel="canonical" href="https://whathides.co.jp/">
@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="WhatHides">
   <meta property="og:url" content="https://whathides.co.jp/">
   <meta property="og:title" content="WhatHides | スタートアップ支援とAI/IT戦略・導入支援">
-  <meta property="og:description" content="WhatHidesは、スタートアップの事業戦略・組織体制・協業・資本政策を一体で支援し、投資ファンドと連携します。あわせて、AI/IT戦略の策定から導入・定着までを支援します。">
+  <meta property="og:description" content="WhatHidesは、スタートアップの事業戦略・組織体制・協業・資本政策を一体で支援します。投資ファンドとの連携も検討しています。あわせて、AI/IT戦略の策定から導入・定着までを支援します。">
   <meta property="og:image" content="https://whathides.co.jp/images/ogp.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <meta name="theme-color" content="#dadada">
+  <meta name="theme-color" content="#f4f3ef">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- 見出し用。使用する文字だけをサブセット取得する -->
@@ -39,7 +39,7 @@
     "url": "https://whathides.co.jp/",
     "logo": "https://whathides.co.jp/images/logoWhathides.png",
     "image": "https://whathides.co.jp/images/ogp.jpg",
-    "description": "WhatHidesは、スタートアップの事業戦略・組織体制・協業・資本政策を一体で支援し、投資ファンドと連携します。あわせて、AI/IT戦略の策定から導入・定着までを支援します。",
+    "description": "WhatHidesは、スタートアップの事業戦略・組織体制・協業・資本政策を一体で支援します。投資ファンドとの連携も検討しています。あわせて、AI/IT戦略の策定から導入・定着までを支援します。",
     "email": "info@whathides.co.jp",
     "employee": {
       "@type": "Person",
@@ -67,7 +67,10 @@
   </script>
 </head>
 
-<body id="top">
+<!-- is-heroTop: ヘッダーがヒーロー画像に重なっている状態。script.js が
+     スクロールに応じて付け外しする。初期値をここに書いておくことで、
+     読み込み直後にナビが黒→白へちらつくのを防ぐ -->
+<body id="top" class="is-heroTop">
   <a class="skipLink" href="#content">本文へスキップ</a>
   <div id="wrapper">
 
@@ -94,26 +97,30 @@
     </header>
 
     <main id="content" tabindex="-1">
-      <p id="mainImg">
+      <div id="hero">
         <picture>
           <source type="image/webp"
                   srcset="images/network-960.webp 960w, images/network-1440.webp 1440w, images/network-1920.webp 1920w"
-                  sizes="(min-width: 800px) 80vw, 100vw">
+                  sizes="100vw">
           <img src="images/network.jpg"
                srcset="images/network-960.jpg 960w, images/network-1440.jpg 1440w, images/network.jpg 1920w"
-               sizes="(min-width: 800px) 80vw, 100vw"
+               sizes="100vw"
                width="1920" height="828" alt="" fetchpriority="high">
         </picture>
-      </p>
+        <div class="heroCopy">
+          <!-- 文節の途中で折り返らないよう、句点ごとに行を分ける -->
+          <p class="heroLead"><span>スタートアップのあるべきに向き合い、</span><span>市場価値を最適化します。</span></p>
+          <p class="heroSub">事業戦略・組織体制・資本政策、そしてAI/IT。切り離さずに設計し、現場で動く形にするところまで。</p>
+        </div>
+      </div>
 
       <!-- VISION -->
       <section id="vision">
-        <header>
-          <h2><span>VISION</span></h2>
+        <header class="secHead">
+          <h2><span class="secNum">01</span><span class="secTitle">VISION</span></h2>
         </header>
         <div class="innerS">
-          <p class="lead">スタートアップのあるべきに向き合い、市場価値を最適化します。</p>
-          <p>事業戦略も、組織も、資本政策も、切り離しては決められません。WhatHidesは投資家・大手企業とスタートアップの双方に立ち位置を持ち、それぞれの意思決定を面で支えます。さらに、AI/ITを実行の手段として持ち込み、描いた戦略を現場で動く形にするところまで踏み込みます。また、機会に応じて、起業家と投資家がつながる場づくりにも取り組みます。</p>
+          <p class="lead">事業戦略も、組織も、資本政策も、切り離しては決められません。WhatHidesは投資家・大手企業とスタートアップの双方に立ち位置を持つことを目指し、それぞれの意思決定を面で支えます。さらに、AI/ITを実行の手段として持ち込み、描いた戦略を現場で動く形にするところまで踏み込みます。また、機会に応じて、起業家と投資家がつながる場づくりにも取り組みます。</p>
 
           <div class="diagram">
             <div class="tier">
@@ -124,7 +131,7 @@
                 <li>大手企業（CVC）</li>
               </ul>
             </div>
-            <p class="tierLink tierLinkBoth"><span>連携・投資支援</span></p>
+            <p class="tierLink tierLinkBoth"><span>連携・投資支援（検討中）</span></p>
             <div class="tier tierSelf">
               <p class="tierSelfName">WhatHides</p>
             </div>
@@ -143,15 +150,15 @@
 
       <!-- SERVICE -->
       <section id="service">
-        <header>
-          <h2><span>SERVICE</span></h2>
+        <header class="secHead">
+          <h2><span class="secNum">02</span><span class="secTitle">SERVICE</span></h2>
         </header>
         <div class="innerS">
           <p class="lead">WhatHidesの支援は、2つの柱で構成されています。スタートアップの成長ステージに応じた支援と、AI/IT戦略の策定から導入までの支援です。</p>
 
           <div class="pillar">
-            <h3>スタートアップ支援イメージ</h3>
-            <p class="pillarLead">成長ステージに応じて支援の形を変えます。投資家との連携を通じて、事業と資本の両面から市場価値の最適化を進めます。</p>
+            <h3>スタートアップ支援</h3>
+            <p class="pillarLead">成長ステージに応じて支援の形を変えます。事業と資本の両面から市場価値の最適化を進めることを目指しており、VC・PEファンドとの連携については現在検討を進めている段階です。</p>
             <ol class="stages">
               <li>
                 <h4>シード / アーリー</h4>
@@ -160,8 +167,8 @@
               </li>
               <li>
                 <h4>ミドル / レイター 〜 IPO前後</h4>
-                <p class="stageWho">WhatHides ↔ VC → 投資先スタートアップ</p>
-                <p>VCと<strong>連携</strong>しながら、投資先スタートアップへ<strong>面での支援</strong>を提供します。次の4つを切り離さず、一体で進めます。</p>
+                <p class="stageWho">WhatHides ↔ VC → 投資先スタートアップ（想定）</p>
+                <p>VCとの<strong>連携</strong>を検討しています。実現した場合には、投資先スタートアップへ<strong>面での支援</strong>を届けます。その際は次の4つを切り離さず、一体で進めます。</p>
                 <ul class="bullets">
                   <li>現場を巻き込んだ事業戦略の策定</li>
                   <li>採用と業務委託を交えた組織体制の構築</li>
@@ -171,8 +178,8 @@
               </li>
               <li>
                 <h4>拡大期 / 安定期</h4>
-                <p class="stageWho">WhatHides → スタートアップ・PEファンド</p>
-                <p>PEファンドによる投資局面で、スタートアップとファンドの双方に<strong>投資支援</strong>を行います。</p>
+                <p class="stageWho">WhatHides → スタートアップ・PEファンド（想定）</p>
+                <p>PEファンドによる投資局面で、スタートアップとファンドの双方への<strong>投資支援</strong>を想定しています。ファンドとの関わり方は現在検討中です。</p>
               </li>
             </ol>
           </div>
@@ -201,40 +208,35 @@
 
       <!-- COMPANY -->
       <section id="company">
-        <header>
-          <h2><span>COMPANY</span></h2>
+        <header class="secHead">
+          <h2><span class="secNum">03</span><span class="secTitle">COMPANY</span></h2>
         </header>
-        <div class="inner">
-          <ul class="col2">
-            <li>
-              <dl class="companyInfo">
-                <dt>会社名</dt>
-                <dd>合同会社WhatHides</dd>
-                <dt>代表者</dt>
-                <dd>代表社員　渡邊英知</dd>
-                <dt>所在地</dt>
-                <dd>千葉県松戸市西馬橋蔵元町125 ムトービルB1階</dd>
-              </dl>
-            </li>
-            <li>
-              <div id="map">
-                <!-- GOOGLE MAP -->
-                <iframe
-                  title="合同会社WhatHides 所在地の地図"
-                  src="https://www.google.com/maps?output=embed&q=%E5%8D%83%E8%91%89%E7%9C%8C%E6%9D%BE%E6%88%B8%E5%B8%82%E8%A5%BF%E9%A6%AC%E6%A9%8B%E8%94%B5%E5%85%83%E7%94%BA125&z=17"
-                  loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                <!-- // GOOGLE MAP -->
-              </div>
-            </li>
-          </ul>
+        <div class="innerS">
+          <dl class="companyInfo">
+            <dt>会社名</dt>
+            <dd>合同会社WhatHides</dd>
+            <dt>代表者</dt>
+            <dd>代表社員　渡邊英知</dd>
+            <dt>所在地</dt>
+            <dd>千葉県松戸市西馬橋蔵元町125 ムトービルB1階</dd>
+          </dl>
+
+          <div id="map">
+            <!-- GOOGLE MAP -->
+            <iframe
+              title="合同会社WhatHides 所在地の地図"
+              src="https://www.google.com/maps?output=embed&q=%E5%8D%83%E8%91%89%E7%9C%8C%E6%9D%BE%E6%88%B8%E5%B8%82%E8%A5%BF%E9%A6%AC%E6%A9%8B%E8%94%B5%E5%85%83%E7%94%BA125&z=17"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <!-- // GOOGLE MAP -->
+          </div>
         </div>
       </section>
       <!-- // COMPANY -->
 
       <!-- CONTACT -->
       <section id="contact">
-        <header>
-          <h2><span>CONTACT</span></h2>
+        <header class="secHead">
+          <h2><span class="secNum">04</span><span class="secTitle">CONTACT</span></h2>
         </header>
         <div class="innerS">
           <p>事業のご相談、協業・投資に関するお問い合わせ、AI/IT導入のご相談は、以下のメールアドレスまでご連絡ください。</p>

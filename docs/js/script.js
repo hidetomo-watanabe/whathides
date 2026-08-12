@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function setMenu(open) {
     if (!menu || !panel) return;
     panel.classList.toggle('is-open', open);
+    // 展開中は帯を地色で塗るので、ロゴとボタンも黒に戻す
+    document.body.classList.toggle('is-menuOpen', open);
     menu.setAttribute('aria-expanded', open ? 'true' : 'false');
     menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
     if (menuBtn) menuBtn.classList.toggle('close', open);
@@ -77,6 +79,23 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
+  /* ヘッダーの白抜き切り替え
+     ヒーロー画像がヘッダーの位置にかかっているあいだは白抜き、
+     抜けたら通常の黒に戻す
+  ------------------------------------------------------------*/
+  var hero = document.getElementById('hero');
+
+  function updateHeader() {
+    if (!hero) return;
+    // モバイルは固定帯（60px + 境界線）、PCはロゴの下端あたりを基準にする
+    var headerBottom = isMobile() ? 61 : 85;
+    document.body.classList.toggle(
+      'is-heroTop',
+      hero.getBoundingClientRect().bottom > headerBottom
+    );
+  }
+
+
   /* スクロール位置に応じた現在地のハイライト
   ------------------------------------------------------------*/
   var linkBy;
@@ -127,12 +146,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ticking = true;
     window.requestAnimationFrame(function () {
       ticking = false;
+      updateHeader();
       updateActive();
     });
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
+  updateHeader();
   updateActive();
 
 });
