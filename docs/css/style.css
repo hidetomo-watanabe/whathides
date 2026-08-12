@@ -108,6 +108,15 @@ a:focus-visible, button:focus-visible{
   font-size: 13px;
 }
 
+#footer .footerNav{
+  margin-bottom: 12px;
+}
+
+#footer .footerNav a{
+  color: #000;
+  text-decoration: underline;
+}
+
 
 /* 共通
 ------------------------------------------------------------*/
@@ -252,6 +261,74 @@ section h2 span {
 #contact .mail{
   margin-top: 15px;
   font-size: 20px;
+}
+
+
+/* プライバシーポリシー
+------------------------------------------------------------*/
+#pageHeader{
+  padding: 25px 0;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+#pageHeader img{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.policy h3{
+  margin: 40px 0 10px;
+  padding-left: 12px;
+  border-left: 3px solid #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.policy h3:first-of-type{
+  margin-top: 0;
+}
+
+.policy p{
+  margin-bottom: 15px;
+}
+
+.policy ul{
+  margin-bottom: 15px;
+}
+
+.policy ul li{
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.policy ul li:before{
+  content: "・";
+}
+
+.policy dl{
+  margin-bottom: 15px;
+}
+
+.policy dt{
+  font-weight: 500;
+}
+
+.policy dd{
+  margin: 0 0 10px;
+  padding-left: 1em;
+}
+
+.policy .policyMail{
+  margin-bottom: 15px;
+  padding-left: 1em;
+  font-size: 18px;
+}
+
+.policy .revised{
+  margin-top: 50px;
+  text-align: right;
+  font-size: 14px;
 }
 
 
@@ -455,6 +532,13 @@ section h2 span {
   #footer{
     width: 80%;
     padding: 30px 10px 70px 0;
+  }
+
+  /* 下層ページは固定サイドバーがないため、右に余白が寄らないよう中央に置く */
+  .subpage #content,
+  .subpage #footer{
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #sidebar{
