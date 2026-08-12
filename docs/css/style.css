@@ -381,6 +381,17 @@ section h2:after{
   letter-spacing: .06em;
 }
 
+/* 矢印が「誰に何を届けるか」、この行が「どう届けるか」。
+   AI/ITは上下どちらの関係にもかかるので、層のあいだではなく
+   WhatHides の箱の中に置く */
+.tierSelfNote{
+  margin-top: 8px;
+  color: rgba(255,255,255,.72);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: .1em;
+}
+
 /* 層と層をつなぐ縦線。図の中央に立てる。
    縦線は背景で描き、疑似要素2つは上下の矢じりに使う。
    ラベルは線に重ね、背景色で線を切って抜けているように見せる */
