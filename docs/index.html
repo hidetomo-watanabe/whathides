@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width">
   <title>WhatHides | スタートアップエコシステムの拡張</title>
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Modern+Antiqua&family=Noto+Sans+JP:wght@300;400;500&display=swap">
   <link rel="stylesheet" media="all" href="css/style.css">
   <script src="js/script.js" defer></script>
 </head>
@@ -24,6 +27,7 @@
               <li><a href="#sec01">VISION</a></li>
               <li><a href="#sec02">SERVICE</a></li>
               <li><a href="#sec05">COMPANY</a></li>
+              <li><a href="#sec06">CONTACT</a></li>
             </ul>
           </div>
         </nav>
@@ -31,7 +35,14 @@
     </div>
 
     <div id="content">
-      <p id="mainImg"><img src="images/network.jpg" alt=""></p>
+      <p id="mainImg">
+        <picture>
+          <source type="image/webp"
+                  srcset="images/network-960.webp 960w, images/network-1440.webp 1440w, images/network-1920.webp 1920w"
+                  sizes="(min-width: 800px) 80vw, 100vw">
+          <img src="images/network.jpg" width="1920" height="828" alt="" fetchpriority="high">
+        </picture>
+      </p>
       <!-- VISION -->
       <section id="sec01">
         <header>
@@ -51,8 +62,25 @@
         <header>
           <h2><span>SERVICE</span></h2>
         </header>
+        <div class="innerS">
+          <p class="lead">WhatHidesは、スタートアップの成長ステージに応じて支援の形を変えます。投資家との連携を通じて、事業と資本の両面から市場価値の最適化を進めます。</p>
+          <ul class="stages">
+            <li>
+              <h3>シード / アーリー</h3>
+              <p>起業家・スタートアップへの<strong>紹介</strong>と<strong>壁打ち</strong>。初期の事業仮説を検証し、必要な人材・企業をつなぎます。</p>
+            </li>
+            <li>
+              <h3>ミドル / レイター 〜 IPO前後</h3>
+              <p>VCと<strong>連携</strong>しながら、投資先スタートアップへ<strong>面での支援</strong>を提供します。現場を巻き込んだ事業戦略策定、採用と業務委託を交えた組織体制構築、大手企業との協業促進、長期的資本政策の策定を一体で進めます。</p>
+            </li>
+            <li>
+              <h3>拡大期 / 安定期</h3>
+              <p>PEファンドによる投資局面で、スタートアップとファンドの双方に<strong>投資支援</strong>を行います。</p>
+            </li>
+          </ul>
+        </div>
         <ul id="gallery">
-          <li class="full"><img src="images/service.png" width="1080" height="695" alt=""></li>
+          <li class="full"><img src="images/service.png" width="1080" height="695" alt="成長ステージごとの支援内容を示した図。シード・アーリー期は紹介と壁打ち、ミドル・レイター期からIPO後はVCと連携した面での支援、拡大期・安定期はスタートアップとPEファンド双方への投資支援。"></li>
         </ul>
       </section>
       <!-- // SERVICE -->
@@ -78,6 +106,17 @@
         </div>
       </section>
       <!-- // COMPANY -->
+      <!-- CONTACT -->
+      <section id="sec06">
+        <header>
+          <h2><span>CONTACT</span></h2>
+        </header>
+        <div class="innerS">
+          <p>事業のご相談、協業・投資に関するお問い合わせは、以下のメールアドレスまでご連絡ください。</p>
+          <p class="mail"><a href="mailto:info@whathides.co.jp">info@whathides.co.jp</a></p>
+        </div>
+      </section>
+      <!-- // CONTACT -->
 
       <footer id="footer">
         Copyright(c) 2020-2026 WhatHides LLC. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
