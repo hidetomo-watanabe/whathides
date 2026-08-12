@@ -451,7 +451,8 @@ section h2:after{
   margin-bottom: 0;
 }
 
-.pillar > h3{
+.pillar > h3,
+.subHead{
   margin-bottom: 18px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--fg);
@@ -555,6 +556,26 @@ section h2:after{
 .companyInfo dt:last-of-type,
 .companyInfo dd:last-of-type{
   border-bottom: 1px solid var(--line);
+}
+
+/* 代表紹介。経歴の羅列ではなく読ませる文章なので、
+   罫線で区切らず段落だけで組む */
+.subHead{
+  margin-top: 72px;
+}
+
+.profile p{
+  margin-bottom: 1.7em;
+}
+
+.profile p:last-child{
+  margin-bottom: 0;
+}
+
+/* 導入の一文。ここだけ大きくして読み出しをつくる */
+.profile p:first-child{
+  font-size: 18px;
+  line-height: 1.95;
 }
 
 #map{
@@ -695,6 +716,9 @@ section h2:after{
   }
   .companyInfo{
     grid-template-columns: 5.5em 1fr;
+  }
+  .profile p:first-child{
+    font-size: 17px;
   }
   #map iframe{
     aspect-ratio: 4 / 3;
