@@ -17,8 +17,8 @@ html{
 }
 
 body{
-  font: 14px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
-  font-weight: 300;
+  font: 16px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
+  font-weight: 400;
   -webkit-text-size-adjust:100%;
   overflow-x: hidden;
   color: #000;
@@ -42,6 +42,27 @@ a:hover{
 a:focus-visible, button:focus-visible{
   outline: 2px solid #0052cc;
   outline-offset: 3px;
+}
+
+/* キーボードで最初にフォーカスできる本文へのスキップリンク。
+   フォーカスされるまでは画面外に置く */
+.skipLink{
+  position: absolute;
+  left: 0;
+  top: -100px;
+  z-index: 1000;
+  padding: 10px 20px;
+  background: #fff;
+  color: #0052cc;
+  transition: top .2s;
+}
+
+.skipLink:focus{
+  top: 0;
+}
+
+#content:focus{
+  outline: 0;
 }
 
 /* アニメーションを抑制する設定を尊重する */
@@ -84,7 +105,7 @@ a:focus-visible, button:focus-visible{
   clear: both;
   padding: 50px 10px 50px 0;
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 
@@ -108,7 +129,7 @@ section{
 section h2{
   width: 60%;
   margin: 70px auto;
-  font-size: 22px;
+  font-size: 26px;
   font-weight:normal;
   text-align: center;
 }
@@ -154,6 +175,10 @@ section h2 span {
   margin: 0 auto;
 }
 
+.gallery picture{
+  display: block;
+}
+
 .gallery img{
   display: block;
   width: 100%;
@@ -193,8 +218,8 @@ section h2 span {
   margin-bottom: 5px;
   padding-left: 12px;
   border-left: 3px solid #000;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .stages strong{
@@ -226,74 +251,22 @@ section h2 span {
 ------------------------------------------------------------*/
 #contact .mail{
   margin-top: 15px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 
 /* RESPONSIVE 設定
 ------------------------------------------------------------*/
-
-@media only screen and (min-width: 800px){
-  body{
-    font-size:14px;
-  }
-
-  #wrapper{
-    width: 100%;
-  }
-
-  #content{
-    width: 80%;
-  }
-
-  #footer{
-    width: 80%;
-    padding: 30px 10px 70px 0;
-  }
-
-  #sidebar{
-    width: 12%;
-    position: fixed;
-    top: 0;
-    right: 4%;
-    background: #dadada;
-  }
-
-  #menu{
-    display:none;
-  }
-
-  #sidebar h1{
-    padding: 30px 0;
-  }
-
-  #mainnav li{
-    font-size: 14px;
-    padding: 10px 0;
-  }
-
-  section{
-    scroll-margin-top: 20px;
-  }
-
-  #map iframe{
-    aspect-ratio: auto;
-    height: 200px;
-  }
-}
+/* ブレークポイントは 640/641 と 799/800 の 2 つ。
+   幅の狭い順にブロックを並べる。
+     〜640px   : スマートフォン
+     〜799px   : スマートフォン・タブレット（ナビをハンバーガーに）
+     641px〜   : タブレット以上
+     800px〜   : PC（サイドバーを固定）                             */
 
 
-@media only screen and (min-width: 641px){
-  .col2 li{
-    width: 60%;
-    vertical-align: top;
-  }
-  .col2 li:first-child{
-    width: 35%;
-    padding-right: 4%;
-  }
-}
-
+/* 〜640px : スマートフォン
+------------------------------------------------------------*/
 @media only screen and (max-width: 640px){
   .innerS{
     width: 94%;
@@ -307,7 +280,16 @@ section h2 span {
   }
 }
 
+
+/* 〜799px : スマートフォン・タブレット
+------------------------------------------------------------*/
 @media only screen and (max-width: 799px){
+  /* ヘッダーが position:fixed になるぶん、本文を下げて重なりを避ける
+     （#sidebarWrap の height:60px + border-bottom:1px） */
+  #content{
+    padding-top: 61px;
+  }
+
   #sidebar{
     position: fixed;
     width: 100%;
@@ -441,5 +423,67 @@ section h2 span {
   }
   section h2{
     margin: 55px auto;
+  }
+}
+
+
+/* 641px〜 : タブレット以上
+------------------------------------------------------------*/
+@media only screen and (min-width: 641px){
+  .col2 li{
+    width: 60%;
+    vertical-align: top;
+  }
+  .col2 li:first-child{
+    width: 35%;
+    padding-right: 4%;
+  }
+}
+
+
+/* 800px〜 : PC
+------------------------------------------------------------*/
+@media only screen and (min-width: 800px){
+  #wrapper{
+    width: 100%;
+  }
+
+  #content{
+    width: 80%;
+  }
+
+  #footer{
+    width: 80%;
+    padding: 30px 10px 70px 0;
+  }
+
+  #sidebar{
+    width: 12%;
+    position: fixed;
+    top: 0;
+    right: 4%;
+    background: #dadada;
+  }
+
+  #menu{
+    display:none;
+  }
+
+  #sidebar h1{
+    padding: 30px 0;
+  }
+
+  #mainnav li{
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  section{
+    scroll-margin-top: 20px;
+  }
+
+  #map iframe{
+    aspect-ratio: auto;
+    height: 200px;
   }
 }

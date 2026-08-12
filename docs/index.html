@@ -20,6 +20,8 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta name="theme-color" content="#dadada">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- 見出し用。使用する文字だけをサブセット取得する -->
@@ -51,6 +53,7 @@
 </head>
 
 <body id="top">
+  <a class="skipLink" href="#content">本文へスキップ</a>
   <div id="wrapper">
 
     <header id="sidebar">
@@ -75,7 +78,7 @@
       </div>
     </header>
 
-    <main id="content">
+    <main id="content" tabindex="-1">
       <p id="mainImg">
         <picture>
           <source type="image/webp"
@@ -108,7 +111,12 @@
               </ul>
             </div>
           </li>
-          <li><img src="images/scheme.png" width="654" height="628" alt="" loading="lazy"></li>
+          <li>
+            <picture>
+              <source type="image/webp" srcset="images/scheme.webp">
+              <img src="images/scheme.png" width="654" height="628" alt="" loading="lazy">
+            </picture>
+          </li>
         </ul>
       </section>
       <!-- // VISION -->
@@ -136,7 +144,12 @@
           </ul>
         </div>
         <ul class="gallery">
-          <li class="full"><img src="images/service.png" width="1805" height="662" loading="lazy" alt="成長ステージごとの支援内容を示した図。シード・アーリー期は紹介と壁打ち、ミドル・レイター期からIPO後はVCと連携した面での支援、拡大期・安定期はスタートアップとPEファンド双方への投資支援。"></li>
+          <li class="full">
+            <picture>
+              <source type="image/webp" srcset="images/service.webp">
+              <img src="images/service.png" width="1805" height="662" loading="lazy" alt="成長ステージごとの支援内容を示した図。シード・アーリー期は紹介と壁打ち、ミドル・レイター期からIPO後はVCと連携した面での支援、拡大期・安定期はスタートアップとPEファンド双方への投資支援。">
+            </picture>
+          </li>
         </ul>
       </section>
       <!-- // SERVICE -->

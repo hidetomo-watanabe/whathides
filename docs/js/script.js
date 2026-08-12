@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var menu = document.getElementById('menu');
   var menuBtn = document.getElementById('menuBtn');
   var panel = document.getElementById('navPanel');
+  var mainnav = document.getElementById('mainnav');
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('#mainnav ul a'));
 
   function isMobile() {
@@ -32,6 +33,31 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.key === 'Escape' && panel.classList.contains('is-open')) {
         setMenu(false);
         menu.focus();
+      }
+    });
+
+    // メニューの外をクリックしたら閉じる
+    document.addEventListener('click', function (e) {
+      if (!panel.classList.contains('is-open')) return;
+      if (mainnav && mainnav.contains(e.target)) return;
+      setMenu(false);
+    });
+
+    // 開いている間はフォーカスをメニュー内に閉じ込める
+    // （順序は 開閉ボタン → パネル内のリンク）
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab' || !panel.classList.contains('is-open')) return;
+
+      var items = [menu].concat(Array.prototype.slice.call(panel.querySelectorAll('a')));
+      var first = items[0];
+      var last = items[items.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     });
 
